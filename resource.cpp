@@ -180,3 +180,24 @@ bool Resource::supprimer(int idr){
     return query.exec();
 }
 
+
+QSqlQueryModel* Resource::trier()
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM RESOURCE_DB ORDER BY idr ASC");
+    model->setHeaderData(0, Qt::Horizontal,QObject::tr("idr"));
+    model->setHeaderData(1, Qt::Horizontal,QObject::tr("price"));
+    model->setHeaderData(2, Qt::Horizontal,QObject::tr("type"));
+    model->setHeaderData(3, Qt::Horizontal,QObject::tr("alloc"));
+    model->setHeaderData(4, Qt::Horizontal,QObject::tr("stock"));
+    model->setHeaderData(5, Qt::Horizontal,QObject::tr("storage"));
+    model->setHeaderData(6, Qt::Horizontal,QObject::tr("date_exp"));
+    return model;
+}
+
+QSqlQueryModel * Resource::rechercherResource(QString chaine)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM RESOURCE_DB WHERE (idr LIKE '%" + chaine + "%')");
+    return model;
+}

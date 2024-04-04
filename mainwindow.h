@@ -26,6 +26,24 @@ private slots:
 
     void on_search_clicked();
 
+    void on_pushButton_tri_clicked();
+
+    void on_lineEdit_rec_textChanged(const QString &arg1);
+
+    void createServicePieChart();
+
+    void on_PDF_clicked();
+
+    void on_metier1_clicked();
+
+    QStringList determineProjects(int teamID);
+
+    QList<QPair<int, QString>>determineLowResources();
+
+    void updateLowResourcesList();
+
+    void on_PDF_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Resource R;

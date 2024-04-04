@@ -54,6 +54,8 @@ public:
     bool modifier(int idr,int price,QString type,int alloc,int stock,int storage,QString date_exp);
     QSqlQueryModel * recherche(int idr);
     bool supprimer(int idr);
+    QSqlQueryModel* trier();
+    QSqlQueryModel * rechercherResource(QString);
 };
 
 #endif // RESOURCE_H
