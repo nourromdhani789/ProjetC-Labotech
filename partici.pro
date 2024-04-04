@@ -1,6 +1,6 @@
-QT       += core gui sql
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui sql printsupport
+QT       += charts
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
 
@@ -35,7 +35,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    ../../Bureau/ProjetC++/participantfinale/images/ressource.qrc
+    ../../Bureau/ProjetC++/participantfinale/images/ressource.qrc \
+    qml.qrc
 
 DISTFILES += \
     ../../Bureau/ProjetC++/participantfinale/images/logo.png

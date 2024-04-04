@@ -6,6 +6,13 @@
 #include <QSqlQueryModel>
 #include <QDebug>
 #include <QSqlError>
+#include <QDir>
+#include <QTextDocument>
+#include <QDate>
+#include <QPdfWriter>
+#include <QPageSize>
+#include <QCoreApplication>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -57,6 +64,16 @@ public:
     bool supprimer(int);
     bool modifier(int,QString,QString,QString,int,QString,QString,QString,QString);
     QSqlQueryModel * recherche(int);
+    QSqlQueryModel* trier();
+    QSqlQueryModel * rechercherpartici(QString);
+    QSqlQueryModel * afficherarchive();
+    QSqlQueryModel* trierarch();
+    QSqlQueryModel * rechercherarchive(QString);
+    QSqlQueryModel * rechercheCalender(const QString &name);
+    void deleteCalendarData(const QString &name);
+    bool supprimerarchive(int ) ;
+
+    //void pdf();
 };
 
 #endif // PARTICIPANT_H
