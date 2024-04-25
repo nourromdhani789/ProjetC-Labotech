@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql serialport printsupport network charts multimedia widgets concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,16 +20,19 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     resource.cpp \
+    statistics.cpp \
     workshop.cpp
 
 HEADERS += \
     connexion.h \
     mainwindow.h \
     resource.h \
+    statistics.h \
     workshop.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistics.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

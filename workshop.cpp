@@ -39,7 +39,7 @@ bool Workshop::supprimer(QString idworkshop)
 {
     QSqlQuery query;
     QString C=idworkshop;
-          query.prepare("Delete from workshop WHERE idworkshop:=idworkshop");
+          query.prepare("DELETE FROM workshop WHERE idworkshop=:idworkshop");
           query.bindValue(":idworkshop", idworkshop);
          return  query.exec();
 
@@ -67,6 +67,158 @@ model->setHeaderData(3, Qt::Horizontal, QObject::tr("reservation"));
 return model;
 }
 
+void Workshop::exporter(QTableView *table)
+{
+
+    QString filters("CSV files (*.csv);;All files (*.*)");
+    QString defaultFilter("CSV files (*.csv)");
+    QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+                                                    filters, &defaultFilter);
+    QFile file(fileName);
+    QAbstractItemModel *model =  table->model();
+    if (file.open(QFile::WriteOnly | QFile::Truncate))
+    {
+        QTextStream data(&file);
+        QStringList strList;
+        for (int i = 0; i < model->columnCount(); i++)
+        {
+            if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+            else
+                strList.append("");
+        }
+        data << strList.join(";") << "\n";
+        for (int i = 0; i < model->rowCount(); i++)
+        {
+            strList.clear();
+            for (int j = 0; j < model->columnCount(); j++)
+            {
+
+                if (model->data(model->index(i, j)).toString().length() > 0)
+                    strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                else
+                    strList.append("");
+            }
+            data << strList.join(";") + "\n";
+        }
+        file.close();
+    }
+}
+
+QSqlQueryModel * Workshop::search_rooms(QString room)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from workshop where room=:room");
+    qry.bindValue(":room",room);
+    qry.exec();
+
+    QSqlQueryModel *model= new QSqlQueryModel;
+    model->setQuery(qry);
+
+
+   return model;
+
+
+}
+
+QSqlQueryModel * Workshop::search_capacity(QString capacity)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from workshop where capacity=:capacity");
+    qry.bindValue(":capacity",capacity);
+    qry.exec();
+
+    QSqlQueryModel *model= new QSqlQueryModel;
+    model->setQuery(qry);
+
+
+   return model;
+
+
+}
+
+QSqlQueryModel * Workshop::search_reservation(QString reservation)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from workshop where reservation=:reservation");
+    qry.bindValue(":reservation",reservation);
+    qry.exec();
+
+    QSqlQueryModel *model= new QSqlQueryModel;
+    model->setQuery(qry);
+
+
+   return model;
+
+
+}
+QSqlQueryModel * Workshop::search_rooms_capacity(QString room,QString capacity)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from workshop where room=:salaire and capacity=:capacity ");
+    qry.bindValue(":room",room);
+    qry.bindValue(":capacity",capacity);
+    qry.exec();
+
+    QSqlQueryModel *model= new QSqlQueryModel;
+    model->setQuery(qry);
+
+
+   return model;
+
+
+}
+QSqlQueryModel * Workshop::search_rooms_reservation(QString room,QString reservation)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from workshop where room=:room and reservation=:reservation ");
+    qry.bindValue(":room",room);
+    qry.bindValue(":reservation",reservation);
+    qry.exec();
+
+    QSqlQueryModel *model= new QSqlQueryModel;
+    model->setQuery(qry);
+
+
+   return model;
+
+
+}
+QSqlQueryModel * Workshop::search_capacity_reservation(QString capacity,QString reservation)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from workshop where capacity=:capacity and reservation=:reservation ");
+    qry.bindValue(":capacity",capacity);
+    qry.bindValue(":reservation",reservation);
+    qry.exec();
+
+    QSqlQueryModel *model= new QSqlQueryModel;
+    model->setQuery(qry);
+
+
+   return model;
+
+
+}
+
+
+
+
+
+QSqlQueryModel * Workshop::search_with_all(QString room,QString capacity,QString reservation)
+{
+   QSqlQuery *qry= new QSqlQuery();
+   qry->prepare("select * from workshop where room=:room and capacity=:capacity and reservation=:reservation");
+   qry->bindValue(":room",room);
+   qry->bindValue(":capacity",capacity);
+   qry->bindValue(":reservation",reservation);
+   qry->exec();
+
+      QSqlQueryModel *model = new QSqlQueryModel();
+      model->setQuery(*qry);
+       return model;
+
+}
 
 
 

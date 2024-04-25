@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1300</width>
-    <height>624</height>
+    <width>1120</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="palette">
@@ -1691,10 +1691,10 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #FFFFFF</string>
+      <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
@@ -1744,18 +1744,204 @@ background-color: transparent;</string>
          <string>WorkShop list :</string>
         </property>
        </widget>
-       <widget class="QTableView" name="afficher_Workshop">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>90</y>
-          <width>591</width>
-          <height>411</height>
+          <x>200</x>
+          <y>50</y>
+          <width>471</width>
+          <height>451</height>
          </rect>
         </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: #FFFFFF;</string>
-        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_15">
+         <item>
+          <widget class="QLabel" name="label_38">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="text">
+            <string>Search :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_24">
+           <item>
+            <widget class="QCheckBox" name="checkBox_rooms_display">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 224, 252);</string>
+             </property>
+             <property name="text">
+              <string>Rooms</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_capacity_display">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 224, 252);</string>
+             </property>
+             <property name="text">
+              <string>Capacity</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_reservation_display">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 224, 252);</string>
+             </property>
+             <property name="text">
+              <string>Reservation</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <layout class="QFormLayout" name="formLayout_7">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_40">
+               <property name="text">
+                <string>Rooms :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_41">
+               <property name="text">
+                <string>Capacity :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_42">
+               <property name="text">
+                <string>Reservation</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QRadioButton" name="yes_reservation_display">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 224, 252);</string>
+                 </property>
+                 <property name="text">
+                  <string>Yes</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="no_reservation_display">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 224, 252);</string>
+                 </property>
+                 <property name="text">
+                  <string>No</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit_search_rooms">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 224, 252);
+border-radius: 15px;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEdit_search_capacity">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 224, 252);
+border-radius: 15px;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_25">
+             <item>
+              <widget class="QPushButton" name="rechercherf">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 224, 252);
+border-radius: 15px;</string>
+               </property>
+               <property name="text">
+                <string>Search</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="reafficherf">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 224, 252);
+border-radius: 15px;</string>
+               </property>
+               <property name="text">
+                <string>Re-display</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTableView" name="afficher_Workshop_2">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 224, 252);</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_26">
+           <item>
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="export2_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 224, 252);
+border-radius: 15px;
+</string>
+             </property>
+             <property name="text">
+              <string>Export PDF</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Statistics">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 224, 252);
+border-radius: 15px;
+</string>
+             </property>
+             <property name="text">
+              <string>Statistics</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>
@@ -1810,8 +1996,8 @@ background-color: transparent;</string>
        <widget class="QWidget" name="formLayoutWidget">
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>120</y>
+          <x>50</x>
+          <y>80</y>
           <width>751</width>
           <height>201</height>
          </rect>
@@ -3038,8 +3224,8 @@ border-radius: 15px;</string>
        <widget class="QWidget" name="horizontalLayoutWidget">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>320</y>
+          <x>480</x>
+          <y>280</y>
           <width>321</width>
           <height>81</height>
          </rect>
@@ -3149,8 +3335,8 @@ background-color: transparent;</string>
        <widget class="QWidget" name="formLayoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>140</y>
+          <x>10</x>
+          <y>80</y>
           <width>841</width>
           <height>181</height>
          </rect>
@@ -4183,8 +4369,8 @@ border-radius: 15px;</string>
        <widget class="QWidget" name="horizontalLayoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>350</y>
+          <x>530</x>
+          <y>260</y>
           <width>321</width>
           <height>81</height>
          </rect>
@@ -4269,8 +4455,8 @@ border-radius: 15px;</string>
        <widget class="QWidget" name="formLayoutWidget_4">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>70</y>
+          <x>80</x>
+          <y>90</y>
           <width>681</width>
           <height>41</height>
          </rect>
@@ -4537,10 +4723,10 @@ background-color: transparent;</string>
        <widget class="QWidget" name="horizontalLayoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>380</x>
-          <y>140</y>
+          <x>440</x>
+          <y>150</y>
           <width>321</width>
-          <height>80</height>
+          <height>41</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -4594,6 +4780,105 @@ border-radius: 15px;</string>
        </widget>
       </widget>
      </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Media</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_27">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>180</y>
+         <width>611</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0.608, x2:1, y2:0.591, stop:0.00526316 rgba(228, 177, 252), stop:1 rgba(222, 0, 255, 255));
+border-radius: 15px;</string>
+       </property>
+       <property name="title">
+        <string>Music</string>
+       </property>
+       <widget class="QWidget" name="verticalLayoutWidget_10">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>591</width>
+          <height>102</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_70">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_45">
+           <item>
+            <widget class="QPushButton" name="ouvrir_media">
+             <property name="text">
+              <string>Open</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="play_media">
+             <property name="text">
+              <string>Play</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pause_media">
+             <property name="text">
+              <string>Pause</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="stop_media">
+             <property name="text">
+              <string>Stop</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_46">
+           <item>
+            <widget class="QProgressBar" name="avancement_media">
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_47">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_48">
+             <item>
+              <widget class="QPushButton" name="mute_media">
+               <property name="text">
+                <string>Mute</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="volume_media">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -4602,7 +4887,7 @@ border-radius: 15px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1300</width>
+     <width>1120</width>
      <height>26</height>
     </rect>
    </property>
