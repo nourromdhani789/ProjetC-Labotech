@@ -1,4 +1,6 @@
 #include "project.h"
+#include <QDebug>
+#include <QSqlError>
 
 Project::Project()
 {
@@ -107,4 +109,62 @@ bool Project::modifier(int num, QString title, QString description, QString budg
     query.bindValue(":budget", budget);
     query.bindValue(":progress", progress);
     return query.exec();
+}
+
+QSqlQueryModel* Project::rechercher(int num)
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM Project WHERE num=:num");
+    query.bindValue(":num", num);
+
+    if (query.exec()) {
+        model->setQuery(query);
+        model->setHeaderData(0, Qt::Horizontal,QObject::tr("num"));
+        model->setHeaderData(1, Qt::Horizontal,QObject::tr("title"));
+        model->setHeaderData(2, Qt::Horizontal,QObject::tr("description"));
+        model->setHeaderData(3, Qt::Horizontal,QObject::tr("budget"));
+        model->setHeaderData(4, Qt::Horizontal,QObject::tr("progress"));
+    } else {
+        // La requête a échoué, gérez l'erreur
+        qDebug() << "Échec de l'exécution de la requête :" << query.lastError().text();
+    }
+
+    return model;
+}
+
+QSqlQueryModel* Project::trier()
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM PROJECT ORDER BY NUM ASC");
+    model->setHeaderData(0, Qt::Horizontal,QObject::tr("num"));
+    model->setHeaderData(1, Qt::Horizontal,QObject::tr("title"));
+    model->setHeaderData(2, Qt::Horizontal,QObject::tr("description"));
+    model->setHeaderData(3, Qt::Horizontal,QObject::tr("budget"));
+    model->setHeaderData(4, Qt::Horizontal,QObject::tr("progress"));
+    return model;
+}
+
+QSqlQueryModel * Project::rechercherProject(QString chaine)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM PROJECT WHERE (num LIKE '%" + chaine + "%')");
+    return model;
+}
+
+bool Project::existance(QString cin)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM project WHERE num = ?");
+    query.addBindValue(cin);
+    if(query.exec())
+    {
+        if(query.next())
+        {
+            // QMessageBox::information(this,  "CIN existe", "CIN déjà existant.");
+            return false;
+        }
+    }
+    return true;
 }

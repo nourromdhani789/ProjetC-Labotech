@@ -23,6 +23,11 @@ public:
     bool ajouter();
     bool supprimer(int);
     bool modifier(int,QString,QString,QString,QString);
+    QSqlQueryModel * rechercher(int);
+    QSqlQueryModel* trier();
+    QSqlQueryModel * rechercherProject(QString);
+    bool existance(QString cin);
+
 
 private:
         int num;

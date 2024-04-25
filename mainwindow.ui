@@ -2193,7 +2193,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -2229,7 +2229,114 @@ background:#7500af;
 border-radius:15px;</string>
        </property>
        <property name="text">
-        <string>refresh</string>
+        <string>Refresh</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>270</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background:#7500af;
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>Trier</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>270</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;
+	border:none;
+	color:white;
+	border-bottom:1px solid white;
+
+</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>380</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background:#7500af;
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>Statistic</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>390</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background:#7500af;
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>PDF</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>390</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background:#7500af;
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>QR code</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>270</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+</string>
+       </property>
+       <property name="text">
+        <string>filtrer:</string>
        </property>
       </widget>
      </widget>
@@ -2820,12 +2927,12 @@ border-radius:15px;</string>
       </widget>
      </widget>
     </widget>
-    <widget class="QToolButton" name="toolButton">
+    <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>120</y>
-       <width>271</width>
+       <x>680</x>
+       <y>110</y>
+       <width>211</width>
        <height>41</height>
       </rect>
      </property>
